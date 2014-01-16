@@ -10,4 +10,9 @@
 
 @interface ViewController : UIViewController
 
+- (IBAction)touchShow:(id)sender;
+- (IBAction)touchShowWithDuration:(id)sender;
+- (IBAction)touchShowWithAnimation:(id)sender;
+- (IBAction)touchCustom:(id)sender;
+
 @end
