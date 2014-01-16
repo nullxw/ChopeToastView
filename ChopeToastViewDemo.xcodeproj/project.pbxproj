@@ -22,6 +22,7 @@
 		ACA6A680188841EA00B38D69 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ACA6A67E188841EA00B38D69 /* InfoPlist.strings */; };
 		ACA6A682188841EA00B38D69 /* ChopeToastViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA6A681188841EA00B38D69 /* ChopeToastViewDemoTests.m */; };
 		ACA6A68E1888420800B38D69 /* ChopeToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA6A68D1888420800B38D69 /* ChopeToastView.m */; };
+		ACA6A690188848D900B38D69 /* ChopeToastView.podspec in Resources */ = {isa = PBXBuildFile; fileRef = ACA6A68F188848D900B38D69 /* ChopeToastView.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		ACA6A681188841EA00B38D69 /* ChopeToastViewDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChopeToastViewDemoTests.m; sourceTree = "<group>"; };
 		ACA6A68C1888420800B38D69 /* ChopeToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChopeToastView.h; sourceTree = "<group>"; };
 		ACA6A68D1888420800B38D69 /* ChopeToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChopeToastView.m; sourceTree = "<group>"; };
+		ACA6A68F188848D900B38D69 /* ChopeToastView.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ChopeToastView.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				ACA6A67B188841EA00B38D69 /* ChopeToastViewDemoTests */,
 				ACA6A655188841EA00B38D69 /* Frameworks */,
 				ACA6A654188841EA00B38D69 /* Products */,
+				ACA6A68F188848D900B38D69 /* ChopeToastView.podspec */,
 			);
 			sourceTree = "<group>";
 		};
@@ -244,6 +247,7 @@
 				ACA6A66F188841EA00B38D69 /* Images.xcassets in Resources */,
 				ACA6A661188841EA00B38D69 /* InfoPlist.strings in Resources */,
 				ACA6A66A188841EA00B38D69 /* Main.storyboard in Resources */,
+				ACA6A690188848D900B38D69 /* ChopeToastView.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
