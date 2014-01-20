@@ -5,7 +5,6 @@ iOS toast view
 
 
 ## Getting Started
----
 
 #### CocoaPods
 
@@ -15,7 +14,6 @@ pod "ChopeToastView"
 ```
 
 ## Usage
----
 
 ```objective-c
 [[ChopeToastView ToastViewWithMessage:@"message"] show];
