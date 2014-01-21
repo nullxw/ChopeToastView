@@ -22,33 +22,58 @@
 
 - (void)setupDefaultValue
 {
-    self.font = [UIFont systemFontOfSize:14.0];
-    self.backgroundAlpha = 0.7;
-    self.textColor = [UIColor whiteColor];
-    self.padding = UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0);
-    self.margin = UIEdgeInsetsMake(10.0, 10.0, 80.0, 10.0);
-    self.roundRadius = 20.0;
+    [self setFrame:[self window].bounds];
+    [self setFont:[UIFont systemFontOfSize:14.0]];
+    [self setBackgroundAlpha:0.7];
+    [self setTextColor:[UIColor whiteColor]];
+    [self setPadding:UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0)];
+    [self setMargin:UIEdgeInsetsMake(10.0, 10.0, 80.0, 10.0)];
+    [self setRoundRadius:10.0];
     
     [self setBackgroundColor:[UIColor blackColor]];
 }
 
-- (void)setupFrame
+- (UIWindow*)window
 {
-    CGSize textSize = [self boundingSizeForMessage];
+    return [[UIApplication sharedApplication].windows lastObject];
+}
+
+
+#pragma mark - Draw
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
     
-    [self setFrame:CGRectMake((self.window.frame.size.width - textSize.width - self.padding.left - self.padding.right) / 2.0,
+    CGSize textSize = [self boundingSizeForMessage];
+    CGRect frame = CGRectMake((self.window.frame.size.width - textSize.width - self.padding.left - self.padding.right) / 2.0,
                               self.window.frame.size.height - textSize.height - self.padding.top - self.padding.bottom - self.margin.bottom,
                               textSize.width + self.padding.left + self.padding.right,
-                              textSize.height + self.padding.top + self.padding.bottom)];
+                              textSize.height + self.padding.top + self.padding.bottom);
+    [self setFrame:frame];
+}
+
+- (void)drawRect:(CGRect)rect
+{
+    CGSize textSize = [self boundingSizeForMessage];
+
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:self.message
+                                                                           attributes:@{
+                                                                                        NSForegroundColorAttributeName: self.textColor,
+                                                                                        NSFontAttributeName: self.font
+                                                                                        }];
+    [attributedString drawInRect:CGRectMake(self.padding.left, self.padding.top, textSize.width, textSize.height)];
+    
+    self.layer.cornerRadius = self.roundRadius;
+    self.layer.masksToBounds = YES;
 }
 
 - (CGSize)boundingSizeForMessage
 {
     CGSize size = CGSizeMake(self.window.frame.size.width - self.margin.left - self.margin.right - self.padding.left - self.padding.right,
-                              CGFLOAT_MAX);
-
+                             CGFLOAT_MAX);
+    
     CGSize resultSize;
-
+    
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 #
@@ -77,59 +102,6 @@
     resultSize.height = ceil(resultSize.height);
     
     return resultSize;
-}
-
-- (void)drawRect:(CGRect)rect
-{
-    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:self.message
-                                                                           attributes:@{
-                                                                                        NSForegroundColorAttributeName: self.textColor,
-                                                                                        NSFontAttributeName: self.font
-                                                                                        }];
-    CGSize boundingSize = [self boundingSizeForMessage];
-    [attributedString drawInRect:CGRectMake(self.padding.left, self.padding.top, boundingSize.width, boundingSize.height)];
-    
-    self.layer.cornerRadius = self.roundRadius;
-    self.layer.masksToBounds = YES;
-}
-
-
-#pragma mark - Getter
-- (UIWindow*)window
-{
-    return [[UIApplication sharedApplication].windows lastObject];
-}
-
-
-#pragma mark - Setter
-- (void)setMargin:(UIEdgeInsets)margin
-{
-    _margin = margin;
-    [self setupFrame];
-}
-
-- (void)setPadding:(UIEdgeInsets)padding
-{
-    _padding = padding;
-    [self setupFrame];
-}
-
-- (void)setBackgroundAlpha:(CGFloat)backgroundAlpha
-{
-    _backgroundAlpha = backgroundAlpha;
-    [self setBackgroundColor:[self.backgroundColor colorWithAlphaComponent:self.backgroundAlpha]];
-}
-
-- (void)setBackgroundColor:(UIColor *)backgroundColor
-{
-    [super setBackgroundColor:[backgroundColor colorWithAlphaComponent:self.backgroundAlpha]];
-}
-
-- (void)setMessage:(NSString *)message
-{
-    _message = message;
-    
-    [self setupFrame];
 }
 
 
