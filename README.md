@@ -19,6 +19,15 @@ pod "ChopeToastView"
 [[ChopeToastView ToastViewWithMessage:@"message"] show];
 ```
 
+## Screenshot
+
+### Default
+
+> ![demoShow](demoShow.png)
+
+### Custom
+
+> ![demoShow](demoCustomShow.png)
 
 ## License
 
