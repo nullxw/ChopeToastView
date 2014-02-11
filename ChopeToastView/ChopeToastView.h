@@ -10,14 +10,16 @@
 
 @interface ChopeToastView : UIView
 
-@property (nonatomic, retain) UIFont *font;
-@property (nonatomic, retain) UIColor *textColor;
-@property (nonatomic) CGFloat backgroundAlpha;
-@property (nonatomic) UIEdgeInsets padding;
-@property (nonatomic) UIEdgeInsets margin;
-@property (nonatomic) CGFloat roundRadius;
+@property (nonatomic, retain) UIFont *font UI_APPEARANCE_SELECTOR;
+@property (nonatomic, retain) UIColor *textColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic) UIEdgeInsets padding UI_APPEARANCE_SELECTOR;
+@property (nonatomic) UIEdgeInsets margin UI_APPEARANCE_SELECTOR;
+@property (nonatomic) CGFloat roundRadius UI_APPEARANCE_SELECTOR;
 
 @property (nonatomic, retain) NSString *message;
+
+@property (nonatomic) CGFloat backgroundAlpha DEPRECATED_ATTRIBUTE;
+
 
 + (instancetype)ToastViewWithMessage:(NSString*)message;
 

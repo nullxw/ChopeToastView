@@ -14,28 +14,42 @@
 {
     self = [super init];
     if (self) {
-        [self setupDefaultValue];
+        [self setFrame:[self window].bounds];
     }
     
     return self;
 }
 
-- (void)setupDefaultValue
-{
-    [self setFrame:[self window].bounds];
-    [self setFont:[UIFont systemFontOfSize:14.0]];
-    [self setBackgroundAlpha:0.7];
-    [self setTextColor:[UIColor whiteColor]];
-    [self setPadding:UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0)];
-    [self setMargin:UIEdgeInsetsMake(10.0, 10.0, 80.0, 10.0)];
-    [self setRoundRadius:10.0];
-    
-    [self setBackgroundColor:[UIColor blackColor]];
-}
 
+#pragma mark - Getter
 - (UIWindow*)window
 {
     return [[UIApplication sharedApplication].windows lastObject];
+}
+
+- (UIFont*)font
+{
+    return _font ? _font : [UIFont systemFontOfSize:14.0];
+}
+
+- (UIColor*)textColor
+{
+    return _textColor ? _textColor : [UIColor whiteColor];
+}
+
+- (UIEdgeInsets)padding
+{
+    return UIEdgeInsetsEqualToEdgeInsets(_padding, UIEdgeInsetsZero) ? UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0) : _padding;
+}
+
+- (UIEdgeInsets)margin
+{
+    return UIEdgeInsetsEqualToEdgeInsets(_margin, UIEdgeInsetsZero) ? UIEdgeInsetsMake(10.0, 10.0, 80.0, 10.0) : _margin;
+}
+
+- (CGFloat)roundRadius
+{
+    return _roundRadius > 0 ? _roundRadius : 10.0;
 }
 
 
@@ -155,6 +169,25 @@
 - (void)hide
 {
     [self removeFromSuperview];
+}
+
+
+#pragma mark - Deprecated method
+- (void)setBackgroundAlpha:(CGFloat)backgroundAlpha
+{
+    if (self.backgroundColor) {
+        const CGFloat* components = CGColorGetComponents(self.backgroundColor.CGColor);
+        [super setBackgroundColor:[UIColor colorWithRed:components[0]
+                                                  green:components[1]
+                                                   blue:components[2]
+                                                  alpha:backgroundAlpha]];
+    }
+    else {
+        [super setBackgroundColor:[UIColor colorWithRed:0
+                                                  green:0
+                                                   blue:0
+                                                  alpha:backgroundAlpha]];
+    }
 }
 
 

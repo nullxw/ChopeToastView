@@ -14,5 +14,6 @@
 - (IBAction)touchShowWithDuration:(id)sender;
 - (IBAction)touchShowWithAnimation:(id)sender;
 - (IBAction)touchCustom:(id)sender;
+- (IBAction)touchAppearance:(id)sender;
 
 @end
