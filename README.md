@@ -30,13 +30,9 @@ pod "ChopeToastView"
 
 ## Screenshot
 
-### Default
-
-> ![demoShow](demoShow.png)
-
-### Custom
-
-> ![demoShow](demoCustomShow.png)
+![](demo1.png)
+![](demo2.png)
+![](demo3.png)
 
 ## License
 
