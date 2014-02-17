@@ -78,7 +78,6 @@
     toastView.font = [UIFont systemFontOfSize:20.0];
     toastView.backgroundColor = [UIColor blueColor];
     toastView.textColor = [UIColor yellowColor];
-//    toastView.backgroundAlpha = 1.0;
     toastView.margin = UIEdgeInsetsMake(0, 0, 300, 0);
     toastView.padding = UIEdgeInsetsMake(20, 20, 20, 20);
     toastView.roundRadius = 40;
@@ -93,6 +92,7 @@
     [[ChopeToastView appearance] setPadding:UIEdgeInsetsMake(20, 20, 20, 20)];
     [[ChopeToastView appearance] setMargin:UIEdgeInsetsMake(1, 1, 1, 1)];
     [[ChopeToastView appearance] setRoundRadius:30.0];
+    [[ChopeToastView appearance] setTextAlignment:NSTextAlignmentCenter];
 }
 
 @end

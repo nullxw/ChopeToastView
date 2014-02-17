@@ -70,12 +70,15 @@
 {
     CGSize textSize = [self boundingSizeForMessage];
 
-    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:self.message
-                                                                           attributes:@{
-                                                                                        NSForegroundColorAttributeName: self.textColor,
-                                                                                        NSFontAttributeName: self.font
-                                                                                        }];
-    [attributedString drawInRect:CGRectMake(self.padding.left, self.padding.top, textSize.width, textSize.height)];
+    NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    [style setAlignment:self.textAlignment];
+
+    NSMutableDictionary *attr = [NSMutableDictionary dictionaryWithObject:style forKey:NSParagraphStyleAttributeName];
+    [attr setObject:self.textColor forKey:NSForegroundColorAttributeName];
+    [attr setObject:self.font forKey:NSFontAttributeName];
+
+    [self.message drawInRect:CGRectMake(self.padding.left, self.padding.top, textSize.width, textSize.height)
+              withAttributes:attr];
     
     self.layer.cornerRadius = self.roundRadius;
     self.layer.masksToBounds = YES;

@@ -15,6 +15,7 @@
 @property (nonatomic) UIEdgeInsets padding UI_APPEARANCE_SELECTOR;
 @property (nonatomic) UIEdgeInsets margin UI_APPEARANCE_SELECTOR;
 @property (nonatomic) CGFloat roundRadius UI_APPEARANCE_SELECTOR;
+@property (nonatomic) NSTextAlignment textAlignment UI_APPEARANCE_SELECTOR;
 
 @property (nonatomic, retain) NSString *message;
 
