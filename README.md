@@ -19,6 +19,15 @@ pod "ChopeToastView"
 [[ChopeToastView ToastViewWithMessage:@"message"] show];
 ```
 
+## Appearance
+* UIFont *font
+* UIColor *textColor
+* UIEdgeInsets padding
+* UIEdgeInsets margin
+* CGFloat roundRadius
+* NSTextAlignment textAlignment
+* UIColor *backgroundColor
+
 ## Screenshot
 
 ### Default
